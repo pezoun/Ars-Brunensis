@@ -1,99 +1,101 @@
-/* styles.css — clean & organized ---------------------------------------
-   Palette, spacing & global tokens live here. Adjust to your taste. */
-   :root {
-    /* Colors */
-    --bg: #ffffff;
-    --text: #151515;
-    --muted: #6b6b6b;
-    --border: #e8e8e8;
-    --accent: #111111;
-  
-    /* Effects */
-    --shadow: 0 10px 30px rgba(0, 0, 0, .08);
-  
-    /* Radii */
-    --radius-sm: 12px;
-    --radius: 18px;
-    --radius-lg: 22px;
-  
-    /* Layout */
-    --container: 1100px;
-    --gutter: 24px;
-  }
-  
-  /* Base / Reset ---------------------------------------------------------- */
-  * { box-sizing: border-box; }
-  html, body { height: 100%; }
-  body {
-    margin: 0;
-    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    color: var(--text);
-    background: var(--bg);
-    line-height: 1.5;
-  }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; text-decoration: none; }
-  
-  /* Layout helpers -------------------------------------------------------- */
-  .container {
-    max-width: var(--container);
-    margin-inline: auto;
-    padding-inline: var(--gutter);
-  }
-  .center { text-align: center; }
-  section { padding: 64px 0; }
-  
-  /* Type ------------------------------------------------------------------ */
-  h2 {
-    margin: 0 0 18px;
-    font-size: 32px;
-    line-height: 1.15;
-    font-weight: 800;
-  }
-  .lead {
-    color: var(--muted);
-    font-size: 18px;
-    font-weight: 500;
-  }
-  
-  /* Buttons --------------------------------------------------------------- */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: .5ch;
-    padding: 10px 18px;
-    border: 2px solid var(--accent);
-    border-radius: 24px;
-    background: #fff;
-    font-weight: 700;
-    box-shadow: 0 2px 0 var(--accent);
-    transition: transform .05s ease, box-shadow .05s ease;
-  }
-  .btn:active { transform: translateY(2px); box-shadow: 0 0 0 var(--accent); }
-  
-  /* Navbar ---------------------------------------------------------------- */
-  .nav {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    backdrop-filter: saturate(180%) blur(8px);
-    background: rgba(255, 255, 255, .86);
-    border-bottom: 1px solid rgba(0, 0, 0, .05);
-  }
-  .nav-inner { display: flex; align-items: center; gap: 28px; height: 72px; }
-  .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .5px; }
-  .brand svg { width: 38px; height: 38px; }
-  .menu { display: flex; align-items: center; gap: 28px; margin-left: auto; }
-  .menu a { font-weight: 500; }
-  .cta { margin-left: 12px; }
+/* ========================================================================== */
+/* styles.css — tidy, grouped, and DRY                                        */
+/* ========================================================================== */
 
+/* 01) Design Tokens -------------------------------------------------------- */
+:root {
+  /* Colors */
+  --bg: #ffffff;
+  --text: #151515;
+  --muted: #6b6b6b;
+  --border: #e8e8e8;
+  --accent: #111111;
 
-/* styles.css – doplň styl pro obrázkové logo */
-.brand-logo {
-  width: 200px;   /* můžeš přizpůsobit */
-  height: auto;
-  display: block;
+  /* Effects */
+  --shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+  /* Radii */
+  --radius-sm: 12px;
+  --radius: 18px;
+  --radius-lg: 22px;
+
+  /* Layout */
+  --container: 1100px;
+  --gutter: 24px;
+}
+
+/* 02) Base / Reset --------------------------------------------------------- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* 03) Layout Utilities ----------------------------------------------------- */
+.container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.center { text-align: center; }
+section { padding: 64px 0; }
+
+/* 04) Typography ----------------------------------------------------------- */
+h2 {
+  margin: 0 0 18px;
+  font-size: 32px;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* 05) Buttons -------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5ch;
+  padding: 10px 18px;
+  border: 2px solid var(--accent);
+  border-radius: 24px;
+  background: #fff;
+  font-weight: 700;
+  box-shadow: 0 2px 0 var(--accent);
+  transition: transform .05s ease, box-shadow .05s ease;
+}
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 0 0 var(--accent);
+}
+
+/* 06) Navigation ----------------------------------------------------------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: saturate(180%) blur(8px);
+  background: rgba(255, 255, 255, .86);
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  height: 72px;
 }
 .brand {
   display: flex;
@@ -102,111 +104,280 @@
   font-weight: 800;
   letter-spacing: .5px;
 }
+.brand svg { width: 38px; height: 38px; }
+/* Image logo variant */
+.brand-logo {
+  width: 200px;   /* adjust as needed */
+  height: auto;
+  display: block;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-left: auto;
+}
+.menu a { font-weight: 500; }
+.cta { margin-left: 12px; }
 
-  
-  /* Hero ------------------------------------------------------------------ */
-  .hero { position: relative; }
-  .hero img { width: 100%; height: 520px; object-fit: cover; }
-  .dots {
-    position: absolute;
-    left: 50%;
-    bottom: 22px;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-  }
-  .dot {
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    background: #d9d9d9;
-    box-shadow: inset 0 0 0 2px rgba(0, 0, 0, .15);
-  }
-  .dot.active { background: #6e6e6e; }
-  
-  /* About ----------------------------------------------------------------- */
-  .about { position: relative; }
-  .about .ghost-g {
-    position: absolute;
-    left: 20px;
-    top: -10px;
-    opacity: .06;
-    user-select: none;
-  }
-  .more { margin-top: 14px; }
-  
-  /* Upcoming cards -------------------------------------------------------- */
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 26px;
-    margin-top: 10px;
-  }
-  .card {
-    display: grid;
-    grid-template-columns: 84px 1fr auto;
-    align-items: center;
-    gap: 18px;
-    padding: 22px;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-  }
+/* 07) Hero / Carousel ------------------------------------------------------ */
+.hero { position: relative; }
+
+/* Unified carousel styles used in hero */
+.carousel { position: relative; }
+.car__viewport {
+  position: relative;
+  overflow: hidden;
+  height: 520px;
+}
+.car__track {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  will-change: transform;
+}
+.car__slide { min-width: 100%; user-select: none; }
+.car__slide img,
+.hero img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+}
+.car__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(255,255,255,.75);
+  backdrop-filter: blur(6px);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,.15);
+}
+.car__btn--prev { left: 16px; }
+.car__btn--next { right: 16px; }
+
+.dots,
+.car__dots {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+.dot,
+.car__dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  border: 0;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,.12);
+}
+.dot.active,
+.car__dots .dot.is-active { background: #6e6e6e; }
+
+/* 08) About section -------------------------------------------------------- */
+.about { position: relative; }
+.about .ghost-g {
+  position: absolute;
+  left: 20px;
+  top: -10px;
+  opacity: .06;
+  user-select: none;
+}
+.more { margin-top: 14px; }
+
+/* 09) Cards & Grid --------------------------------------------------------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  margin-top: 10px;
+}
+
+/* Modifier for concerts page (larger gaps) */
+.cards--concerts { gap: 30px; }
+
+/* Card base */
+.card {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 84px 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  transition: box-shadow .25s ease;
+}
+
+/* Date block inside card */
+.date {
+  width: 84px;
+  height: 84px;
+  border-radius: var(--radius-lg);
+  background: #f5f5f5;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  line-height: 1.05;
+  font-weight: 800;
+}
+.date .day { font-size: 36px; }
+.date .month { margin-top: 2px; font-size: 16px; font-weight: 700; }
+
+/* Card content text */
+.title { margin-bottom: 6px; font-size: 18px; font-weight: 800; color: #111; }
+.meta { font-size: 14px; color: #4c4c4c; }
+.chip {
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fafafa;
+  font-weight: 600;
+}
+
+/* Card “panel” overlay (opened via .is-open on .card) */
+.card > :not(.card__panel) {
+  transition: filter .25s cubic-bezier(.2,.7,.3,1), transform .25s cubic-bezier(.2,.7,.3,1);
+}
+.card.is-open > :not(.card__panel) {
+  filter: blur(4px);
+  transform: scale(.985);
+}
+
+.card__panel {
+  position: absolute;
+  inset: 10px; /* small inner offset */
+  border-radius: 18px;
+  background: rgba(255,255,255,.75);
+  backdrop-filter: blur(8px);
+  box-shadow: inset 0 0 0 1px var(--border);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(8px) scale(.98);
+  pointer-events: none;
+  transition: opacity .25s cubic-bezier(.2,.7,.3,1), transform .25s cubic-bezier(.2,.7,.3,1);
+}
+.card.is-open .card__panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.card.is-open { box-shadow: 0 16px 40px rgba(0,0,0,.12); }
+
+.card__panel h3 { margin: 0 0 6px; font-size: 18px; font-weight: 800; }
+.card__panel p { margin: 0; color: #333; }
+.panel__actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+.panel__close {
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 32px; height: 32px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card > :not(.card__panel),
+  .card__panel { transition: none !important; }
+}
+
+/* 10) Pagination (pager) --------------------------------------------------- */
+.pager {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin: 26px 0 6px;
+}
+.pill {
+  border: 1px solid var(--border);
+  background: #efefef;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+.pill.is-active { background: #111; color: #fff; }
+
+/* 11) Page-level helpers --------------------------------------------------- */
+.page { padding-top: 100px; padding-bottom: 100px; }
+.page h1 {
+  font-size: 36px;
+  line-height: 1.1;
+  margin: 8px 0 14px;
+  text-align: center;
+  font-weight: 900;
+}
+.cards + .center { margin-top: 18px; }
+
+/* 12) Footer --------------------------------------------------------------- */
+footer {
+  padding: 46px 0 70px;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+.foot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.ab-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 900;
+  font-size: 42px;
+  letter-spacing: 1.5px;
+}
+.support { text-align: right; color: #555; }
+.brno { margin-top: 10px; display: inline-flex; }
+.brno-logo { width: 250px; height: auto; }
+.ars-logo  { width: 200px; height: auto; }
+
+/* 13) Responsive ----------------------------------------------------------- */
+@media (max-width: 980px) {
+  .cards { grid-template-columns: 1fr 1fr; }
+  .foot  { grid-template-columns: 1fr; gap: 26px; }
+  .support { text-align: left; }
+}
+
+@media (max-width: 760px) {
+  .nav__toggle { display: block; }
+
+  .car__viewport,
+  .car__slide img,
+  .hero img { height: 420px; }
+
+  .car__btn,
+  .car__btn--next { display: none; }
+
+  .cards { grid-template-columns: 1fr; }
+  .card { grid-template-columns: 72px 1fr auto; }
+
   .date {
-    width: 84px;
-    height: 84px;
-    border-radius: var(--radius-lg);
-    background: #f5f5f5;
-    display: grid;
-    place-items: center;
-    text-align: center;
-    line-height: 1.05;
-    font-weight: 800;
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius);
   }
-  .date .day { font-size: 36px; }
-  .date .month { margin-top: 2px; font-size: 16px; font-weight: 700; }
-  .title { margin-bottom: 6px; font-size: 18px; font-weight: 800; color: #111; }
-  .meta { font-size: 14px; color: #4c4c4c; }
-  .chip {
-    padding: 6px 12px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: #fafafa;
-    font-weight: 600;
-  }
-  .cards + .center { margin-top: 18px; }
-  
-  /* Footer ---------------------------------------------------------------- */
-  footer { padding: 46px 0 70px; border-top: 1px solid var(--border); margin-top: 40px; }
-  .foot { display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
-  .ab-logo { display: flex; align-items: center; gap: 12px; font-weight: 900; font-size: 42px; letter-spacing: 1.5px; }
-  .support { text-align: right; color: #555; }
-  .brno { margin-top: 10px; display: inline-flex; }
-  .brno-logo{
-    width: 250px;   /* můžeš přizpůsobit */
-    height: auto;
-    
-  }
-  .ars-logo{
-    width: 200px;   /* můžeš přizpůsobit */
-    height: auto;
-    
-  }
-  
-  /* Responsive ------------------------------------------------------------ */
-  @media (max-width: 980px) {
-    .cards { grid-template-columns: 1fr 1fr; }
-    .foot { grid-template-columns: 1fr; gap: 26px; }
-    .support { text-align: left; }
-    .ars-logo {align-items: center;}
-  }
-  @media (max-width: 640px) {
-    .menu { display: none; }
-    .hero img { height: 420px; }
-    .cards { grid-template-columns: 1fr; }
-    .card { grid-template-columns: 72px 1fr auto; }
-    .date { width: 72px; height: 72px; border-radius: var(--radius); }
-    .date .day { font-size: 30px; }
-  }
-  
+  .date .day { font-size: 30px; }
+}
