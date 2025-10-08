@@ -126,6 +126,11 @@ h2 {
   .desktop-menu { display: none; }           /* pokud ji máš */
   .hamburger { display: inline-block;
      margin-left: auto; }
+
+     .nav .container {
+      padding-left: max(22px, env(safe-area-inset-left));
+      padding-right: 22px, 
+    }
   .menu {
     margin-top: 20vh;
     position: fixed; inset: 0;
@@ -185,7 +190,7 @@ h2 {
 .brand svg { width: 38px; height: 38px; }
 /* Image logo variant */
 .brand-logo {
-  width: 200px;   /* adjust as needed */
+  width: 120px;   /* adjust as needed */
   height: auto;
   display: block;
 }
