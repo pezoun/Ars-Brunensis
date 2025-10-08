@@ -1,0 +1,214 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ars Brunensis — O nás</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- NAVBAR (sdílený) -->
+  <nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" aria-label="Ars Brunensis">
+      <img src="images/NavLogo.png" alt="Logo Ars Brunensis" class="brand-logo">
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+      <label for="nav-toggle" class="hamburger" aria-label="Otevřít menu">
+        <span></span><span></span><span></span>
+      </label>
+
+    <div class="menu">
+      <a href="index.html">Aktuality</a>
+      <a href="koncerty.html">Koncerty</a>
+
+      <div class="has-sub">
+        <a href="about.html" aria-haspopup="true" aria-expanded="false">O nás ▾</a>
+        <ul class="sub" role="menu">
+          <li role="none"><a role="menuitem" href="about.html#o-sboru">O sboru</a></li>
+          <li role="none"><a role="menuitem" href="about.html#sbormistri">Sbormistři</a></li>
+          <li role="none"><a role="menuitem" href="about.html#zpevaci">Zpěváci</a></li>
+          <li role="none"><a role="menuitem" href="about.html#partneri">Partneři</a></li>
+        </ul>
+      </div>
+
+      <a href="#">Kontakt</a>
+      <span class="cta"><a class="btn" href="#">Pro členy</a></span>
+    </div>
+  </div>
+</nav>
+  
+  </div>
+
+  <main class="page">
+    <!-- Hlavní fotka -->
+    <img class="hero-photo" src="images/about-hero.jpg" alt="Sbor — skupinová fotografie">
+
+    <!-- O sboru -->
+    <section id="o-sboru" class="section">
+      <div class="container">
+        <h1>O našem sboru</h1>
+        <p>Ars Brunensis je smíšený pěvecký sbor působící přes čtyřicet let. Proslul zejména interpretací barokní hudby, ale věnuje se i jazzu, folkloru, muzikálů či alternativě. Koncertuje doma i v zahraničí, účastní se festivalů, spolupracuje s významnými umělci a institucemi, má na kontě přes dvacet CD a řadu rozhlasových i televizních záznamů. Od roku 1997 úzce spolupracuje s Vladimírem Franzem, jehož scénickou hudbu opakovaně uvádí a nahrává. Sbor vystřídal několik sbormistrů; od roku 2025 ho vede Eduard Kostelník. Kromě koncertů pořádá i originálně dramaturgicky pojaté kulturní akce a podporuje mladé umělce.</p>
+
+        <div class="gallery2">
+          <img src="images/about-gal-1.jpg" alt="Foto ze zkoušky">
+          <img src="images/about-gal-2.jpg" alt="Foto z koncertu">
+        </div>
+
+        <p>Ars Brunensis je smíšený pěvecký sbor působící přes čtyřicet let. Proslul zejména interpretací barokní hudby, ale věnuje se i jazzu, folkloru, muzikálů či alternativě. Koncertuje doma i v zahraničí, účastní se festivalů, spolupracuje s významnými umělci a institucemi, má na kontě přes dvacet CD a řadu rozhlasových i televizních záznamů. Od roku 1997 úzce spolupracuje s Vladimírem Franzem…</p>
+      </div>
+    </section>
+
+    <!-- Sbormistři -->
+    <section id="sbormistri" class="people">
+      <div class="container">
+        <h2>Sbormistři</h2>
+
+        <article class="conductor">
+          <div>
+            <img src="images/conductor-1.jpg" alt="Eduard Kostelník, sbormistr">
+            <div class="caption">Eduard Kostelník, sbormistr</div>
+          </div>
+          <div class="bio">
+            <p>Pochází z Levoče. Studoval varhany a dirigování na konzervatoři v Košicích a dirigování-sbor na VŠMU v Bratislavě u prof. B. Jurisinyové. Od roku 2021 působí na JAMU a současně se vzdělává v postgraduálním studiu u J. Kleckera, M. Štilce, J. Kouta aj.</p>
+            <p>Vede školní sbory a spolupracoval na několika inscenacích a koncertech (Janáček Brno 2022). Koncertoval s Moravskou filharmonií Olomouc a PFS – Prague Philharmonia, podílel se na projektu AB – Hudba pro přátele.</p>
+          </div>
+        </article>
+
+        <article class="conductor">
+          <div>
+            <img src="images/conductor-2.jpg" alt="Jan Kalašek, hostující sbormistr">
+            <div class="caption">Jan Kalašek, hostující sbormistr</div>
+          </div>
+          <div class="bio">
+            <p>Po studiích na konzervatoři v Brně a JAMU působil na scéně na Hochschule für Musik und Theater v Lipsku a ve Vídni; spolupracoval s významnými dirigenty (K. Moser, F. Luisi aj.).</p>
+            <p>Od roku 2008 je sbormistrem Ars Brunensis, s nímž koncertoval po celé Evropě; spolupracuje s českými operními domy a věnuje se soudobé hudbě. Je autorem řady úprav a působí též jako pedagog.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Zpěváci -->
+    <section id="zpevaci" class="singers">
+      <div class="container">
+        <h2>Zpěváci</h2>
+        <div class="voice-grid">
+          <div class="voice"><h3>soprán</h3>
+            <ul>
+              <li>Hrdinová Naděžda</li>
+              <li>Hrdová Vendula</li>
+              <li>Barcalová Andrea</li>
+              <li>Koprdová Lucie</li>
+              <li>Merlíková Karina</li>
+              <li>Pokorná Sylva</li>
+              <li>Poláčková Simona</li>
+              <li>Štrbová Jitka</li>
+              <li>Tavčarová Kristína</li>
+              <li>Vetešová Michaela</li>
+            </ul>
+          </div>
+          <div class="voice"><h3>alt</h3>
+            <ul>
+              <li>Adolfová Zuzana</li>
+              <li>Azaurová Kateřina</li>
+              <li>Barátová Michaela</li>
+              <li>Čáslavská Zlatka</li>
+              <li>Chudobová Lucia</li>
+              <li>Charvátová Dorota</li>
+              <li>Krátká Monika</li>
+              <li>Krejčí Tereza</li>
+              <li>Nováková Pavlína</li>
+              <li>Panvická Barbora</li>
+            </ul>
+          </div>
+          <div class="voice"><h3>tenor</h3>
+            <ul>
+              <li>Almány Miroslav</li>
+              <li>Balázš Michal</li>
+              <li>Černý Tomáš</li>
+              <li>Horák Jiří</li>
+              <li>Nedubek Štěpán</li>
+              <li>Studený Kamil</li>
+              <li>Viktorin Karel</li>
+            </ul>
+          </div>
+          <div class="voice"><h3>bas</h3>
+            <ul>
+              <li>Filipčák Jan</li>
+              <li>Gondek Tomáš</li>
+              <li>Hladký David</li>
+              <li>Kašpárek Jaroslav</li>
+              <li>Kráčmar Martin</li>
+              <li>Pšenica Ondřej</li>
+              <li>Vašút Jakub</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partneři (placeholder) -->
+    <section id="partneri" class="section">
+      <div class="container">
+        <h1>Partneři</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras auctor, velit a luctus blandit, ipsum purus tristique erat, non varius turpis lectus id risus.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div class="ab-logo" aria-label="Ars Brunensis logo">
+        <img class="ars-logo"  src="images/Ars Brunensis logo.png" alt="">
+      </div>
+      <div class="support">
+        <div>Za finanční podpory<br/> statutárního města Brna</div>
+        <div class="brno" aria-label="BRNO logotyp">
+            <img class="brno-logo" src="images/Logo_Brno_BLACK_RGB.png" alt="">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  // Dropdown: přepínání aria-expanded u "O nás" při focus/hover
+  
+  <script>
+    (function(){
+    const wrap = document.querySelector('.has-sub');
+    if (!wrap) return;
+    const link = wrap.querySelector('a');
+    let closeTimer;
+
+    const open  = () => { clearTimeout(closeTimer); link.setAttribute('aria-expanded','true'); };
+    const close = () => { link.setAttribute('aria-expanded','false'); };
+
+    wrap.addEventListener('mouseenter', open);
+    wrap.addEventListener('mouseleave', () => {
+        // krátká prodleva, aby to neblikalo při sjíždění
+        closeTimer = setTimeout(close, 180);
+    });
+    wrap.addEventListener('focusin', open);
+    wrap.addEventListener('focusout', (e) => {
+        if (!wrap.contains(e.relatedTarget)) close();
+    });
+
+    // klik mimo menu zavře
+    document.addEventListener('click', (e)=> {
+        if (!wrap.contains(e.target)) close();
+    });
+
+    // tap na „O nás“ na touch toggluje
+    link.addEventListener('touchstart', (e) => {
+        const expanded = link.getAttribute('aria-expanded') === 'true';
+        if (!expanded) { e.preventDefault(); open(); }
+    }, { passive: false });
+    })();
+</script>
+</body>
+</html>

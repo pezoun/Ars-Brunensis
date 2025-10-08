@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ars Brunensis – maketa</title>
+  <title>Ars Brunensis – Home</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -12,16 +12,25 @@
 <body>
   <!-- NAVBAR -->
   <!-- Upravený navbar s vlastním obrázkem -->
-<nav class="nav">
+  <nav class="nav">
     <div class="container nav-inner">
+      <!-- Logo vlevo -->
       <a href="index.html" class="brand" aria-label="Ars Brunensis">
         <img src="images/NavLogo.png" alt="Logo Ars Brunensis" class="brand-logo">
       </a>
-      <div class="menu">
+  
+      <!-- Toggler podle videa (checkbox hack, bez JS) -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+      <label for="nav-toggle" class="hamburger" aria-label="Otevřít menu">
+        <span></span><span></span><span></span>
+      </label>
+  
+      <!-- Menu (desktop i mobil) -->
+      <div id="nav-menu" class="menu">
         <a href="index.html">Aktuality</a>
         <a href="koncerty.html">Koncerty</a>
-        <a href="#">O nás</a>
-        <a href="#">Kontakt</a>
+        <a href="about.html">O nás</a>
+        <a href="contact.html">Kontakt</a>
         <span class="cta"><a class="btn" href="#">Pro členy</a></span>
       </div>
     </div>
