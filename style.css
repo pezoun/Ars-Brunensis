@@ -132,6 +132,10 @@ h2 {
       padding-right: 22px, 
     }
   .menu {
+    box-shadow:
+    0 18px 40px rgba(0,0,0,.06),   /* lehký vnější stín pro „odlepění“ nahoře */
+    inset 0 0 0 1px var(--border); /* tenký vnitřní okraj, viditelný i na fullscreen panelu */
+  background: #fff;
     margin-top: 20vh;
     position: fixed; inset: 0;
     background: #fff;
@@ -140,6 +144,15 @@ h2 {
     transform: translateY(-100%); opacity: 0; pointer-events: none;
     transition: transform .35s cubic-bezier(.2,.7,.3,1), opacity .25s ease;
     z-index: 70;
+    
+  }
+  .menu::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 72px;    /* výška tvého navbaru */
+    height: 1px;
+    background: var(--border);
+    pointer-events: none;
   }
   /* otevření panelu při zaškrtnutém checkboxu */
   .nav-toggle:checked ~ .menu {
