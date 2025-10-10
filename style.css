@@ -146,6 +146,33 @@ h2 {
     z-index: 70;
     
   }
+
+  /* NAV button – opravdový střed, žádná „spodní hrana“ */
+.nav .btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;      /* stejné nahoře i dole */
+  line-height: 1;          /* žádná asymetrie od fontu */
+  border: 2px solid #111;  /* jen jeden rovnoměrný okraj */
+  border-radius: 16px;
+  box-shadow: none;        /* ← odstraní tu druhou linku dole */
+  transform: none;         /* žádné posouvání */
+}
+
+/* pro jistotu vypnout případné pseudo-prvky z jiných variant */
+.nav .btn::before,
+.nav .btn::after{ content: none !important; }
+
+/* hover – jen malý lift, bez posunu obsahu */
+.nav .btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.08);
+}
+.nav .btn:active{
+  transform: translateY(0);   /* v navbaru nechceme „propad“ */
+  box-shadow: none;
+}
   .menu::before {
     content: "";
     position: absolute;
@@ -315,7 +342,7 @@ h2 {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
-  transition: box-shadow .25s ease;
+  transition: box-shadow .5s ease;
 }
 
 /* Date block inside card */
@@ -346,7 +373,7 @@ h2 {
 
 /* Card “panel” overlay (opened via .is-open on .card) */
 .card > :not(.card__panel) {
-  transition: filter .25s cubic-bezier(.2,.7,.3,1), transform .25s cubic-bezier(.2,.7,.3,1);
+  transition: filter .5s cubic-bezier(.2,.7,.3,1), transform .5s cubic-bezier(.2,.7,.3,1);
 }
 .card.is-open > :not(.card__panel) {
   filter: blur(4px);
@@ -367,7 +394,7 @@ h2 {
   opacity: 0;
   transform: translateY(8px) scale(.98);
   pointer-events: none;
-  transition: opacity .25s cubic-bezier(.2,.7,.3,1), transform .25s cubic-bezier(.2,.7,.3,1);
+  transition: opacity .5s cubic-bezier(.2,.7,.3,1), transform .5s cubic-bezier(.2,.7,.3,1);
 }
 .card.is-open .card__panel {
   opacity: 1;
@@ -641,70 +668,358 @@ footer {
   }
 }
 
-/* === 100 Days CSS – Button #45 (wire corners draw + fill) =============== */
-/* --- FIX pro 100 Days CSS button #45: výplň zcela skrytá, žádné černé zbytky --- */
-.btn.btn-100d45{
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  isolation: isolate;                /* jistý z-index pro vnitřní vrstvy */
+
+
+/* === Reports (Výroční zprávy) ========================================== */
+.reports { padding: 48px 0 64px; }
+.reports__title {
+  text-align: center;
+  font-size: clamp(24px, 3.2vw, 36px);
+  font-weight: 900;
+  margin: 0 0 22px;
 }
 
-/* výplň: škálujeme odspodu = 0 → 1, nikdy nic nečouhá */
-.btn.btn-100d45::before{
-  border-radius: inherit;            /* kopíruje rohy tlačítka */
-  transform: scaleY(0) !important;
-  transform-origin: bottom center;
+/* 4 sloupce na desktopu, 3/2/1 níže podle šířky */
+.reports__grid{
+  list-style: none;
+  margin: 0;
+  padding: 6px 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px 80px; /* vertikální, horizontální – ladí se screenshotem */
+  justify-items: start;
 }
 
-/* hover: vyplň na plnou výšku */
-.btn.btn-100d45:hover::before{ transform: scaleY(1) !important; }
-
-/* kreslené dráty – ať nepůsobí jako výplň */
-.btn.btn-100d45::after{ inset: 10px; }          /* vnitřní offset */
-.btn.btn-100d45 > span::before{ inset: -10px; } /* svislé čáry */
-
-.btn.btn-100d45 > span{ position: relative; z-index: 3; }
-
-/* levý a pravý drát – pomocí pseudo na <span> (kvůli stacking orderu) */
-.btn.btn-100d45 > span{ position: relative; z-index: 3; }
-.btn.btn-100d45 > span::before{
-  content:"";
-  position:absolute; inset:-10px;               /* stejné jako inset na parent ::after, ale obráceně */
-  border-radius: 8px;
-  background:
-    linear-gradient(var(--b),var(--b)) top    left / 2px 0% no-repeat,
-    linear-gradient(var(--b),var(--b)) bottom right / 2px 0% no-repeat;
-  transition: background-size .45s cubic-bezier(.2,.7,.3,1) .05s;  /* drobná prodleva */
-  z-index: 2;
+.reports__pill{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  height: 56px;
+  padding: 0 22px;
+  border-radius: 50px;
+  background: #eee;                  /* světle šedé „bubliny“ */
+  color: #111;
+  font-weight: 400;
+  font-size: 24px;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 0 rgba(0,0,0,.02);
+  transition: transform .12s cubic-bezier(.2,.7,.3,1),
+             box-shadow .2s ease, background-color .2s ease;
 }
 
-/* hover – fill nahoru, text do bíla, dráty se dokreslí */
-.btn.btn-100d45:hover{
+/* jemný hover v duchu webu */
+.reports__pill:hover{
   transform: translateY(-1px);
-  color: var(--fg-hover);
+  background: #f3f3f3;
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
 }
-.btn.btn-100d45:hover::before{ transform: translateY(0); }
-.btn.btn-100d45:hover::after{
-  background-size: 100% 2px, 100% 2px;          /* horizontální linky */
-}
-.btn.btn-100d45:hover > span::before{
-  background-size: 2px 100%, 2px 100%;          /* vertikální linky */
-}
-
-/* aktivní „press“ */
-.btn.btn-100d45:active{ transform: translateY(1px); }
-
-/* focus ring */
-.btn.btn-100d45:focus-visible{
-  outline:none;
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--b) 22%, transparent);
+.reports__pill:active{ transform: translateY(0); }
+.reports__pill:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(17,17,17,.12), 0 8px 22px rgba(0,0,0,.08);
 }
 
-/* reduced motion */
+/* Responsivita – postupně méně sloupců */
+@media (max-width: 1100px){
+  .reports__grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 60px; }
+}
+@media (max-width: 820px){
+  .reports__grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 40px; }
+}
+@media (max-width: 520px){
+  .reports__grid{ grid-template-columns: 1fr; justify-items: center; gap: 14px; }
+  .reports__pill{ min-width: 200px; font-size: 22px; }
+}
+
+
+/* ===== Minimal button system (unified for .btn and .chip) =============== */
+
+/* Základ */
+.btn, .chip{
+  --fg: var(--accent, #111);
+
+  display: inline-flex;
+  align-items: center;          /* svislé centrování textu  */
+  justify-content: center;      /* vodorovné centrování     */
+  gap: .5ch;
+
+  color: var(--fg);
+  background: transparent;
+  border: 2px solid currentColor;
+  border-radius: 12px;
+  padding: 12px 24px;
+  line-height: 1;               /* bez „poskakování“        */
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: center;
+
+  position: relative;
+  transition: transform .12s cubic-bezier(.2,.7,.3,1),
+             box-shadow .5s ease,
+             border-color .5s ease;
+}
+
+/* Pilulky (stejný styl, jen tenčí a kulaté) */
+.chip{
+  border-width: 1.5px;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 700;
+}
+
+/* Minimal hover: jemné zvednutí + měkký stín */
+.btn:hover, .chip:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.08);
+}
+
+/* Press (klik) */
+.btn:active, .chip:active{
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+/* Přístupný focus ring (klávesnice) */
+.btn:focus-visible, .chip:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(17,17,17,.15);
+}
+
+/* Respekt k omezenému pohybu */
 @media (prefers-reduced-motion: reduce){
-  .btn.btn-100d45,
-  .btn.btn-100d45::before,
-  .btn.btn-100d45::after,
-  .btn.btn-100d45 > span::before{ transition: none !important; }
+  .btn, .chip{ transition: none !important; }
+}
+
+/* ===== Kontakt – obsah stránky (bez footeru) ============================ */
+
+/* Nadpis stránky */
+.contact-title{
+  text-align:center;
+  font-size: clamp(28px, 3.6vw, 40px);
+  font-weight: 900;
+  margin: 18px 0 28px;
+  letter-spacing: .2px;
+}
+
+/* Dvou-sloupcový layout karet */
+.contact-cards{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  align-items: start;
+}
+
+/* Karta */
+.card{
+  background:#fff;
+  border:1px solid var(--border, #e8e8e8);
+  border-radius: 16px;
+  min-width:30vw;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  padding: 22px 22px;
+}
+
+/* Titulek karty */
+.card-title{
+  margin:0 0 12px;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing:.3px;
+}
+
+/* Textové bloky uvnitř karty */
+.vcard, .person, .bank{
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+  color:#1a1a1a;
+}
+
+/* Malé šedé labely nad sekcemi (Kontakt, Banka…) */
+.label{
+  display:inline-block;
+  margin-bottom:4px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+  color:#6b6b6b;
+}
+
+/* Odkazy v kontaktní osobě */
+.person strong{ display:block; margin-bottom:2px; font-weight:800; }
+.person a{
+  color:#111;
+  text-decoration:none;
+  border-bottom:1px solid rgba(0,0,0,.2);
+}
+.person a:hover{ border-color:#111; }
+
+/* Definiční seznam (IČO, IBAN…) */
+.facts{
+  display:grid;
+  gap:8px;
+  margin: 0 0 10px;
+  padding: 0;
+}
+.facts div{
+  display:grid;
+  grid-template-columns: 150px 1fr;  /* šířka sloupce s názvem položky */
+  gap:10px;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(0,0,0,.08);
+}
+.facts div:last-child{ border-bottom:0; }
+.facts dt{ font-weight:800; color:#222; }
+.facts dd{ margin:0; color:#111; }
+
+/* Responzivita – na mobilu jeden sloupec */
+@media (max-width: 960px){
+  .contact-cards{ grid-template-columns:1fr; gap:18px; }
+  .facts div{ grid-template-columns: 130px 1fr; }
+}
+
+/* Drobnost pro hezký spodek obsahu stránky */
+.contact-page .container{ padding-bottom: 14px; }
+
+
+/* === Sticky footer bez zásahu do HTML ================================== */
+html, body { height: 100%; }
+
+body{
+  min-height: 100dvh;           /* plná výška okna (lepší pro mobily) */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Nav zůstává nahoře, obsah uprostřed, footer na dně */
+footer{
+  margin-top: auto;             /* odtlačí footer dolů */
+  position: static !important;  /* kdyby něco přepisovalo pozicování */
+  clear: both;                  /* kdyby nad tím plaval float */
+  transform: none !important;
+}
+
+/* Trocha vzduchu pod obsahem, ať footer “nedoléhá” */
+body > .container:last-of-type{
+  padding-bottom: 24px;
+}
+
+/* (volitelné) pokud máš sticky .nav, ať se s obsahem nepřekrývá */
+.contact-title{ scroll-margin-top: 90px; }
+
+
+
+/* reset: všude běžné zalamování slov (žádné lámání uprostřed znaků) */
+.facts dd{
+  
+  overflow-wrap: normal;
+  hyphens: manual;
+}
+
+/* jen IBAN (4. položka) může lámat kdekoli, aby se vešel */
+.facts div:nth-child(4) dd{
+  overflow-wrap: anywhere;   /* moderní varianta */
+  word-break: break-word;    /* fallback */
+}
+
+/* iOS text-size fix */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* ===== Kontakt – solidní mobilní verze ================================= */
+@media (max-width: 700px){
+
+  /* stránka a karty na plnou šířku */
+  .contact-page .container{
+    max-width: none;
+    padding-inline: 12px;
+  }
+  .contact-page .contact-title{
+    font-size: 24px;
+    margin: 12px 0 14px;
+  }
+  .contact-page .contact-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .contact-page .contact-cards .card{
+    width: 100%;
+    padding: 14px 12px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.06);
+  }
+
+  /* --- Levá karta (název + adresa + kontakt) -------------------------- */
+  .contact-page .vcard{
+    font-style: normal;         /* žádná italika */
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0 0 10px;
+  }
+  .contact-page .person{
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .contact-page .person strong{
+    font-size: 16px;
+    margin-bottom: 2px;
+    display: block;
+  }
+  .contact-page .person a{
+    display: block;             /* velká tap zóna */
+    padding: 6px 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: #111;
+  }
+
+  /* --- Pravá karta (fakta) -------------------------------------------- */
+  .contact-page .facts{
+    display: grid;
+    gap: 10px;
+    margin: 0;
+  }
+  .contact-page .facts div{
+    display: flex;
+    flex-direction: column;     /* dt nad dd → nic nepřetéká */
+    align-items: flex-start;
+    gap: 4px;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(0,0,0,.08);
+  }
+  .contact-page .facts div:last-child{ border-bottom: 0; }
+
+  .contact-page .facts dt{
+    font-size: 14px;
+    font-weight: 800;
+    color: #222;
+  }
+  .contact-page .facts dd{
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.6;
+    word-break: normal;         /* standardní zalamování */
+    overflow-wrap: break-word;  /* zlomí až když je potřeba */
+  }
+
+  /* pouze IBAN povolí lámat „kdekoli“ (dlouhý řetězec) */
+  .contact-page .facts dt.iban + dd{
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  /* jistota: nic nevyjede horizontálně kvůli flexu */
+  .contact-page *{ min-width: 0; }
+  body{ overflow-x: hidden; }
+}
+
+/* drobný mezikrok – na užších mobilech ještě menší písmo a okraje */
+@media (max-width: 380px){
+  .contact-page .contact-cards .card{ padding: 12px 10px; border-radius: 10px; }
+  .contact-page .facts dt{ font-size: 13px; }
+  .contact-page .facts dd{ font-size: 15px; }
+  .contact-page .person a{ padding: 5px 0; }
 }
