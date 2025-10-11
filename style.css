@@ -815,7 +815,7 @@ footer {
   background:#fff;
   border:1px solid var(--border, #e8e8e8);
   border-radius: 16px;
-  min-width:30vw;
+  min-width:20vw;
   box-shadow: 0 10px 30px rgba(0,0,0,.06);
   padding: 22px 22px;
 }
@@ -1022,4 +1022,16 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   .contact-page .facts dt{ font-size: 13px; }
   .contact-page .facts dd{ font-size: 15px; }
   .contact-page .person a{ padding: 5px 0; }
+}
+
+
+/* Kontakt – karty jako column (jen na kontaktu) */
+@media (max-width: 700px){
+  .card, .contact-card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 10px;           /* můžeš klidně změnit/odstranit */
+  }
 }
