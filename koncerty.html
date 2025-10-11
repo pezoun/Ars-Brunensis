@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -34,11 +35,11 @@
   </nav>
 
   <main class="page">
-    <div class="container">
+    <div data-aos="fade" class="container">
       <h1>Nadcházející koncerty</h1>
 
       
-      <section class="cards cards--concerts">
+      <section data-aos="fade" class="cards cards--concerts">
       
         
         <article class="card">
@@ -147,5 +148,14 @@
   </footer>
   
 </body>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,       // délka animace v ms
+    once: true,          // animace se spustí jen jednou (ne při každém scrollu)
+    offset: 100,         // vzdálenost v px, kdy se má animace spustit
+    easing: 'ease-in-out'// průběh animace
+  });
+</script>
 <script src="cards-info.js"></script>
 </html>

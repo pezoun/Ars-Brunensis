@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kontakt | Ars Brunensis</title>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -32,7 +33,7 @@
     </div>
   </nav>
 
-  <section class="contact-plain container">
+  <section data-aos="fade" class="contact-plain container">
     <h1 class="contact-plain__title">Kontakt</h1>
   
     <div class="contact-plain__grid">
@@ -95,4 +96,13 @@
     </div>
   </footer>
 </body>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,       // délka animace v ms
+    once: true,          // animace se spustí jen jednou (ne při každém scrollu)
+    offset: 100,         // vzdálenost v px, kdy se má animace spustit
+    easing: 'ease-in-out'// průběh animace
+  });
+</script>
 </html>

@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="about-page">
@@ -47,11 +48,11 @@
   
   </div>
 
-  <section class="about-mosaic">
-    <div class="container">
+  <section  class="about-mosaic">
+    <div  class="container">
   
       <!-- ŘÁDEK 1: foto vlevo, nadpis vpravo (modrý), textové okno pod ním -->
-      <div class="mosaic__row">
+      <div data-aos="fade-left" class="mosaic__row">
         <figure class="mosaic__media">
           <img src="images/AboutFoto1.jpeg" alt="">
         </figure>
@@ -75,7 +76,7 @@
       </div>
   
       <!-- ŘÁDEK 2: nadpis vlevo (zlatý), foto vpravo, pod ním textové okno -->
-      <div class="mosaic__row mosaic__row--rev">
+      <div data-aos="fade-right" class="mosaic__row mosaic__row--rev">
         <div class="mosaic__side">
           <h2 class="mosaic__title is-gold">
             Vášniví zpěváci,<br>jedinečné hlasy.
@@ -95,7 +96,7 @@
       </div>
   
       <!-- ŘÁDEK 3: foto vlevo, nadpis vpravo (červený), textové okno pod ním -->
-      <div class="mosaic__row">
+      <div data-aos="fade-left" class="mosaic__row">
         <figure class="mosaic__media">
           <img src="images/AboutFoto3.jpeg" alt="">
         </figure>
@@ -118,7 +119,7 @@
   </section>
 
     <!-- 3) Pás s kapelníky / sbormistry -->
-    <section class="conductors-hero">
+    <section data-aos="fade-up" class="conductors-hero">
       <div class="container">
         <h3 class="conductors-hero__title">Poznejte naše vášnivé Sbormistry.</h3>
     
@@ -177,9 +178,9 @@
       </div>
     </section>
 
-    <section class="join-hero" id="pro-zajemce">
+    <section data-aos="fade-up" class="join-hero" id="pro-zajemce">
       <div class="container">
-        <h2 class="join-hero__title">Pro zájemce</h2>
+        <h2 class="join-hero__title"><b>Pro zájemce</b></h2>
     
         <div class="join-hero__wrap">
           <p class="join-hero__lead">
@@ -201,7 +202,7 @@
     </section>
 
     <!-- 5) Výroční zprávy (přebírá tvojí sekci reports) -->
-    <section class="reports">
+    <section data-aos="fade-up" class="reports">
       <div class="container">
         <h3 class="reports__title">Povinné údaje – výroční zprávy</h3>
         <ul class="reports__grid">
@@ -276,6 +277,15 @@
         });
       });
     })();
+    </script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,       // délka animace v ms
+        once: true,          // animace se spustí jen jednou (ne při každém scrollu)
+        offset: 100,         // vzdálenost v px, kdy se má animace spustit
+        easing: 'ease-in-out'// průběh animace
+      });
     </script>
 </body>
 </html>

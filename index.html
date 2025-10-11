@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -59,8 +60,8 @@
   
 
   <!-- ABOUT -->
-  <section class="about">
-    <div class="container center">
+  <section class="about" >
+    <div data-aos="fade"  class="container center">
       <h2>O našem sboru</h2>
       <p class="lead">Ars Brunensis je smíšený pěvecký sbor působící přes čtyřicet let. Proslul zejména interpretací barokní hudby, ale věnuje se i jazzu, folkloru, muzikálů či alternativě. Koncertuje doma i v zahraničí, účastní se festivalů, spolupracuje s významnými umělci a institucemi, má na kontě přes dvacet CD a řadu rozhlasových i televizních záznamů. Od roku 1997 úzce spolupracuje s Vladimírem Franzem, jehož scénickou hudbu opakovaně uvádí a nahrává. Sbor vystřídal několik sbormistrů; od roku 2025 ho vede Eduard Kostelník. Kromě koncertů pořádá i originálně dramaturgicky pojaté kulturní akce a podporuje mladé umělce.</p>
       <div class="more"><a class="btn btn--45" href="about.html"><span>Více</span></a></div>
@@ -72,7 +73,7 @@
 
   <!-- UPCOMING -->
   <section>
-    <div class="container">
+    <div data-aos="fade-up" class="container">
       <div class="center">
         <h2>Nadcházející koncerty</h2>
       </div>
@@ -136,6 +137,17 @@
     </div>
   </footer>
 </body>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,       // délka animace v ms
+    once: true,          // animace se spustí jen jednou (ne při každém scrollu)
+    offset: 100,         // vzdálenost v px, kdy se má animace spustit
+    easing: 'ease-in-out'// průběh animace
+  });
+</script>
 <script src="carousel.js"></script>
 <script src="cards-info.js"></script>
 </html>

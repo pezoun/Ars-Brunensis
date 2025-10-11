@@ -1661,7 +1661,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   .menu{
     position: fixed;
     /* pokryj celý viewport bez ohledu na předky */
-    top: -12.5vh; left: 0; right: 0; bottom: 0;
+    top: -12vh; left: 0; right: 0; bottom: 0;
     width: 100vw;
     height: 100dvh;            /* správná výška i na mobilech */
     overflow: auto;            /* ať jde panel scrollovat, když je dlouhý */
