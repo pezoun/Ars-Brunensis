@@ -14,8 +14,8 @@
     /* background pattern */
     --bg-color: #000000;
     --bg-waves-opacity: .70;
-    --bg-notes-opacity: 1;
-    --bg-tile-size: 1200px auto;
+    --bg-notes-opacity: .40;
+    --bg-tile-size: 1000px auto;
   
     /* layout */
     --container: 1100px;
@@ -45,7 +45,7 @@
   
   /* headings = Playfair */
   h1,h2,h3,h4,h5,h6{ font-family:var(--font-serif); }
-  h1,h2{ line-height:1.12; } h3,h4{ line-height:1.18; }
+  h1,h2{ line-height:1.12; text-align: center; font-weight: 400; color: #1f4ea1; padding-top: 3vh; } h3,h4{ line-height:1.18; }
   
   img{ max-width:100%; display:block; }
   a{ color:inherit; text-decoration:none; }
@@ -58,7 +58,7 @@
   body::after{
     content:"";
     position:fixed; inset:0; pointer-events:none;
-    background-repeat:repeat; background-position:center;
+    background-repeat:repeat; background-position:right;
     background-size:var(--bg-tile-size);
   }
   body::before{ z-index:-2; opacity:var(--bg-waves-opacity); background-image:url("images/bg/waves.png"); }
@@ -70,13 +70,14 @@
   /* helpers */
   .container{ max-width:var(--container); margin-inline:auto; padding-inline:var(--gutter); }
   section{ padding:64px 0; }
-  .center{ text-align:center; }
+  .center{ text-align:center; padding-top: 5vh; }
   
   h2{
     margin:0 0 18px;
     font-size:32px;
     line-height:1.15;
-    font-weight:800;
+    font-weight:600;
+    color: #1f4ea1;
   }
   .lead{ color:var(--muted); font-size:18px; font-weight:500; }
   
@@ -86,7 +87,7 @@
   .btn, .chip{
     --fg: var(--accent);
     display:inline-flex; align-items:center; justify-content:center; gap:.5ch;
-    color:var(--fg); background:transparent;
+    color:#1f4ea1; background:transparent;
     border:2px solid currentColor; border-radius:12px;
     padding:12px 24px; line-height:1; font-weight:800; text-transform:uppercase;
     transition:transform .12s cubic-bezier(.2,.7,.3,1), box-shadow .5s ease, border-color .5s ease;
@@ -162,7 +163,7 @@
     .nav-toggle:checked + .hamburger span:nth-child(3){ top:10px; transform:rotate(-45deg); }
   
     .menu{
-      position:fixed; top:-12vh; left:0; right:0; bottom:0;
+      position:fixed; top:8vh; left:0; right:0; bottom:0;
       width:100vw; height:100dvh; overflow:auto;
       display:flex; flex-direction:column; align-items:center; gap:clamp(14px,3.2vh,22px);
       padding:clamp(18px,4vh,28px) clamp(16px,4vw,24px);
@@ -173,14 +174,14 @@
     .nav-toggle:checked ~ .menu{ transform:translateY(0); opacity:1; pointer-events:auto; }
   
     .menu > a:not(.btn), .menu > li > a:not(.btn){
-      font-size:clamp(24px,6.5vw,36px); font-weight:800; line-height:1.15;
+      font-size:clamp(24px,6.5vw,36px); font-weight:400; line-height:1.15;
     }
     .menu > a::after, .menu > li > a::after{ content:none !important; }
     .menu:hover > a, .menu:hover > li > a{ opacity:1 !important; }
   
     /* stránka O nás: vypnout dropdown v mobilním panelu */
     .about-page .menu > .has-sub .sub{ display:none !important; }
-    .about-page .menu > .has-sub > a{ pointer-events:auto; }
+    .about-page .menu > .has-sub > a{ pointer-events:auto;  }
   }
   
   /* zamknout scroll stránky při otevřeném panelu */
@@ -209,7 +210,7 @@
   
   .card{
     position:relative; overflow:hidden; display:grid; grid-template-columns:84px 1fr auto; align-items:center; gap:18px;
-    padding:22px; background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); box-shadow:var(--shadow);
+    padding:22px;  border:1px solid black; border-radius:var(--radius-lg); box-shadow:var(--shadow);
     transition:box-shadow .5s ease;
   }
   .date{ width:84px; height:84px; border-radius:var(--radius-lg); background:#f5f5f5; display:grid; place-items:center; text-align:center; line-height:1.05; font-weight:800; }
@@ -271,7 +272,7 @@
   
   /* sbormistři – plakát */
   .conductors-hero{ background:transparent; padding:150px 0; position:relative; height:fit-content; }
-  .conductors-hero__title{ text-align:center; margin:0 0 16px; font-weight:900; font-size:clamp(22px,3.2vw,34px); }
+  .conductors-hero__title{ text-align:center; margin:0 0 80px; font-weight:400; font-size:clamp(22px,3.2vw,34px); }
   .conductors-hero__grid{ display:grid; grid-template-columns:1fr 1fr; gap:26px; }
   @media (max-width:980px){ .conductors-hero__grid{ grid-template-columns:1fr; gap:18px; } .conductor-hero{ height:clamp(360px,50vh,520px); } }
   
@@ -340,7 +341,7 @@
      07) Contact – plochý dvousloupec
      ========================================================================== */
   .contact-plain{ padding-block:clamp(28px,5vw,56px); }
-  .contact-plain__title{ text-align:center; font-weight:900; font-size:clamp(32px,5vw,56px); line-height:1.1; margin:0 0 clamp(18px,3.6vw,34px); }
+  .contact-plain__title{ text-align:center; font-weight:100; font-size:clamp(32px,5vw,56px); line-height:1.1; margin:0 0 clamp(18px,3.6vw,34px); color: #1f4ea1; }
   .contact-plain__grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,4vw,56px) clamp(40px,6vw,90px); }
   .contact-plain__col{ display:grid; gap:clamp(22px,3vw,34px); }
   .contact-plain .block{ display:grid; gap:6px; }
@@ -375,7 +376,9 @@ footer{
 .brno-logo{ width: 180px; height: auto; }
 .ars-logo{  width: 150px; height: auto; }
 .mention-text h3{
-  margin: auto;
+  
+  margin-bottom: 0;
+  padding-bottom: 0;
   text-align: center;
   font-weight: 300;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -388,4 +391,196 @@ footer{
 }
 @media (max-width: 760px){
   .mention-text h3{ text-align: left; padding-left: 20px; }
+}
+
+/* === Buttons: non-bold text ============================================ */
+.btn,
+.chip {
+  font-weight: 300 !important; /* normální / medium, ne tučné */
+}
+
+/* pokud máš varianty, necháme je dědit stejnou váhu */
+.btn--ghost {
+  font-weight: 500 !important;
+}
+
+/* === VÝROČNÍ ZPRÁVY – kompaktní velikosti ============================== */
+.reports{
+  padding: clamp(20px, 4vw, 48px) 0;
+}
+
+.reports__title{
+  font-family: var(--font-serif, "Playfair Display", serif);
+  font-weight: 900;
+  font-size: clamp(28px, 3vw, 48px);  /* menší nadpis */
+  line-height: 1.05;
+  letter-spacing: .15px;
+  text-align: center;
+  margin: 0 0 clamp(14px, 2.8vw, 50px);
+  color: #111;
+}
+
+.reports__grid{
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(10px, 2vw, 22px) clamp(16px, 3.2vw, 36px); /* menší mezery */
+  justify-items: center;
+}
+
+/* menší pilule */
+.reports__pill{
+  min-width: clamp(120px, 14vw, 200px);
+  height: clamp(38px, 5.2vh, 56px);
+  padding: 0 clamp(14px, 2.4vw, 22px);
+  border: 2px solid #111;
+  border-radius: 999px;
+  background: transparent;
+  color: #111;
+  font-size: clamp(16px, 1.8vw, 22px);  /* menší text */
+  font-weight: 500;                     /* netučné */
+  line-height: 1;
+  box-shadow: none;
+  transition: transform .1s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.reports__pill:hover{
+  transform: translateY(-1px);         /* menší lift */
+  box-shadow: 0 6px 16px rgba(0,0,0,.07);
+  background-color: rgba(0,0,0,.02);
+}
+
+.reports__pill:active{
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* responzivnější menší layout */
+@media (max-width: 1000px){
+  .reports__grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+@media (max-width: 760px){
+  .reports__grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  
+}
+@media (max-width: 480px){
+  .reports__grid{ grid-template-columns: 1fr; gap: 10px 0; }
+  .reports__pill{ min-width: 190px; }
+}
+
+/* ===== Pro zájemce (join-ars) – layout jako na screenshotu ===== */
+.join-ars{
+  padding-block: clamp(100px, 5.5vh, 60px);
+}
+
+/* Titulek uprostřed, Playfair, modrá, menší než předtím */
+.join-ars__title{
+  font-family: 'Playfair Display', ui-serif, Georgia, serif;
+  font-weight: 800;
+  text-align: center;
+  color: #1f4ea1; /* stejná modrá jako nadpisy */
+  line-height: 1.12;
+  margin: 0 0 clamp(18px, 4vh, 28px);
+  font-size: clamp(26px, 4.2vw, 40px);
+  padding-bottom: 10vh;
+}
+
+/* Dvou-sloupec pod titulkem */
+.join-ars__grid{
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: clamp(18px, 4.5vw, 60px);
+  align-items: start;
+}
+
+/* Levý sloupec – menší, kompaktní typografie */
+.join-ars__lead{
+  margin: 0 0 clamp(10px, 2.2vw, 16px);
+  font-size: clamp(14px, 1.4vw, 18px);
+  line-height: 1.45;
+  color: #101010;
+  max-width: 70ch;
+}
+
+/* Podnadpis */
+.join-ars__subtitle{
+  margin: clamp(8px, 2vw, 14px) 0 clamp(6px, 1.6vw, 10px);
+  font-size: clamp(15px, 1.6vw, 19px);
+  font-weight: 700;
+  color: #111;
+}
+
+/* Seznam požadavků */
+.join-ars__list{
+  margin: 0;
+  padding-left: 1.1em;
+  list-style: disc;
+  font-size: clamp(14px, 1.5vw, 17px);
+  line-height: 1.45;
+}
+.join-ars__list li{ margin: .35em 0; }
+
+/* Pravý sloupec – kontakt */
+.join-ars__right{ justify-self: start; }
+.join-ars__contact-name{
+  margin: 0 0 6px;
+  font-weight: 800;
+  font-size: clamp(16px, 1.9vw, 22px);
+}
+.join-ars__contact-line{
+  margin: 4px 0;
+  font-size: clamp(15px, 1.8vw, 20px);
+}
+
+/* Vypnout jakékoliv podtrhávání/border pro tento blok */
+.join-ars a,
+.join-ars p,
+.join-ars li{
+  text-decoration: none;
+  border: 0 !important;
+}
+
+/* Responsivita – na telefonu vše pod sebe a ještě o chlup menší mezery */
+@media (max-width: 900px){
+  .join-ars__grid{
+    grid-template-columns: 1fr;
+    gap: clamp(14px, 3.8vw, 22px);
+  }
+  .join-ars__right{ margin-top: 2px; }
+
+  
+}
+
+.socials{
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.socials a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: #f5f5f5;
+  color: #111;
+  transition: background-color .3s ease, box-shadow .3s ease, transform .2s ease;
+}
+
+.socials a:hover{
+  
+  box-shadow: 0 6px 16px rgba(0,0,0,.07);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px){
+  .socials{
+    justify-content: flex-start;
+    padding-left: 20px;
+  }
+
+  body{
+    overflow-x: hidden;
+  }
 }
