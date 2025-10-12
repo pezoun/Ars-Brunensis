@@ -141,11 +141,7 @@
   
     /* dropdown */
     .has-sub{ position:relative; }
-    .has-sub .sub{
-      position:absolute; top:100%; left:0; min-width:200px;
-      background:#fff; border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow);
-      padding:8px; margin:6px 0 0; list-style:none; display:none; z-index:60;
-    }
+    
     .has-sub:hover .sub, .has-sub:focus-within .sub{ display:block; }
   
     @media (prefers-reduced-motion:reduce){
