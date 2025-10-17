@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galerie — Sezóna 2025/2026</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="container nav-inner">
+          <!-- Logo vlevo -->
+          <a href="index.html" class="brand" aria-label="Ars Brunensis">
+            <img src="/images/NavLogo.png" alt="Logo Ars Brunensis" class="brand-logo">
+          </a>
+      
+          
+          <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+          <label for="nav-toggle" class="hamburger" aria-label="Otevřít menu">
+            <span></span><span></span><span></span>
+          </label>
+      
+          <!-- Menu (desktop i mobil) -->
+          <div id="nav-menu" class="menu">
+            <a href="index.html">Aktuality</a>
+            <a href="koncerty.html">Koncerty</a>
+            <a href="about.html">O nás</a>
+            <a href="media.html">Média</a>
+            <a href="contact.html">Kontakt</a>
+            <a href="proZajemce.html">Pro zájemce</a>
+            <a class="btn btn--45" href="#">Pro členy</a>
+          </div>
+        </div>
+      </nav>
+
+     
+      <body class="media-category-page">
+      
+        <nav class="nav">…</nav>
+      
+        <main class="container">
+          <p><a href="../../media.html" class="chip">← Zpět na sezóny</a></p>
+          <h1 class="media-category__title">Adventní koncert — sezóna 2024/2025</h1>
+      
+          <!-- GRID náhledů – každý <a.media-thumb> = 1 snímek v setu -->
+          <div class="media-grid">
+            <a href="/images/Dan Kalousek.jpeg"
+               class="media-thumb"
+               data-caption="Zelný trh, prosinec 2024">
+              <img src="../../images/gallery/2024-2025/advent/01-thumb.jpg"
+                   alt="Zelný trh, prosinec 2024">
+            </a>
+      
+            <a href="/images/Eduard Kostelník.jpeg"
+               class="media-thumb"
+               data-caption="Zkouška se smyčci">
+              <img src="../../images/gallery/2024-2025/advent/02-thumb.jpg"
+                   alt="Zkouška se smyčci">
+            </a>
+      
+            <a href="/images/Dan Kalousek.jpeg"
+               class="media-thumb"
+               data-caption="Publikum — detail">
+              <img src="../../images/gallery/2024-2025/advent/03-thumb.jpg"
+                   alt="Publikum — detail">
+            </a>
+      
+            <!-- … přidej další snímky dané kategorie … -->
+          </div>
+        </main>
+      
+        <!-- LIGHTBOX (jen jedna instance, nechej na konci <body>) -->
+        <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Prohlížeč fotek">
+          <button class="lb__close" aria-label="Zavřít (Esc)">✕</button>
+      
+          <figure class="lb__stage">
+            <img class="lb__img" src="" alt="">
+            <figcaption class="lb__caption"></figcaption>
+          </figure>
+      
+          <button class="lb__nav lb__prev" aria-label="Předchozí (←)">‹</button>
+          <button class="lb__nav lb__next" aria-label="Další (→)">›</button>
+          <div class="lb__dots" aria-hidden="true"></div>
+        </div>
+      
+        <!-- tvoje JS (pokud máš) -->
+        <!-- Lightbox JS -->
+        <script src="../../assets/js/gallery.js" defer></script>
+      </body>
+      </html>
+</body>
+</html>
