@@ -44,54 +44,63 @@
       
         <nav class="nav">…</nav>
       
-        <main class="container">
-          <p><a href="../../media.html" class="chip">← Zpět na sezóny</a></p>
-          <h1 class="media-category__title">Adventní koncert — sezóna 2024/2025</h1>
+        <link rel="stylesheet" href="/pure-gallery.css">
+
+<main class="container">
+  <h1 class="media-category__title">Adventní koncert — sezóna 2024/2025</h1>
+
+  <!-- GRID náhledů -->
+  <section class="pure-gallery">
+    <a class="pg-item" href="#g1">
+      <img src="/images/AboutFoto1.jpeg" alt="Zelný trh, prosinec 2024">
+      <span class="pg-caption">Zelný trh, prosinec 2024</span>
+    </a>
+
+    <a class="pg-item" href="#g2">
+      <img src="/images/AboutFoto2.jpeg" alt="Zkouška se smyčci">
+      <span class="pg-caption">Zkouška se smyčci</span>
+    </a>
+
+    <a class="pg-item" href="#g3">
+      <img src="/images/AboutFoto3.jpeg" alt="Publikum — detail">
+      <span class="pg-caption">Publikum — detail</span>
+    </a>
+    <!-- … další náhledy … -->
+  </section>
+
+  <!-- LIGHTBOX přes :target -->
+  <div class="pg-lightbox" id="g1">
+    <a class="pg-close" href="#_" aria-label="Zavřít">✕</a>
+    <figure class="pg-stage">
+      <img src="/images/AboutFoto1.jpeg" alt="Zelný trh, prosinec 2024">
+      <figcaption>Zelný trh, prosinec 2024</figcaption>
+    </figure>
+    <a class="pg-nav pg-prev" href="#g3" aria-label="Předchozí">‹</a>
+    <a class="pg-nav pg-next" href="#g2" aria-label="Další">›</a>
+  </div>
+
+  <div class="pg-lightbox" id="g2">
+    <a class="pg-close" href="#_" aria-label="Zavřít">✕</a>
+    <figure class="pg-stage">
+      <img src="/images/gallery/2024-2025/advent/02-full.jpg" alt="Zkouška se smyčci">
+      <figcaption>Zkouška se smyčci</figcaption>
+    </figure>
+    <a class="pg-nav pg-prev" href="#g1" aria-label="Předchozí">‹</a>
+    <a class="pg-nav pg-next" href="#g3" aria-label="Další">›</a>
+  </div>
+
+  <div class="pg-lightbox" id="g3">
+    <a class="pg-close" href="#_" aria-label="Zavřít">✕</a>
+    <figure class="pg-stage">
+      <img src="/images/gallery/2024-2025/advent/03-full.jpg" alt="Publikum — detail">
+      <figcaption>Publikum — detail</figcaption>
+    </figure>
+    <a class="pg-nav pg-prev" href="#g2" aria-label="Předchozí">‹</a>
+    <a class="pg-nav pg-next" href="#g1" aria-label="Další">›</a>
+  </div>
+</main>
       
-          <!-- GRID náhledů – každý <a.media-thumb> = 1 snímek v setu -->
-          <div class="media-grid">
-            <a href="/images/Dan Kalousek.jpeg"
-               class="media-thumb"
-               data-caption="Zelný trh, prosinec 2024">
-              <img src="../../images/gallery/2024-2025/advent/01-thumb.jpg"
-                   alt="Zelný trh, prosinec 2024">
-            </a>
-      
-            <a href="/images/Eduard Kostelník.jpeg"
-               class="media-thumb"
-               data-caption="Zkouška se smyčci">
-              <img src="../../images/gallery/2024-2025/advent/02-thumb.jpg"
-                   alt="Zkouška se smyčci">
-            </a>
-      
-            <a href="/images/Dan Kalousek.jpeg"
-               class="media-thumb"
-               data-caption="Publikum — detail">
-              <img src="../../images/gallery/2024-2025/advent/03-thumb.jpg"
-                   alt="Publikum — detail">
-            </a>
-      
-            <!-- … přidej další snímky dané kategorie … -->
-          </div>
-        </main>
-      
-        <!-- LIGHTBOX (jen jedna instance, nechej na konci <body>) -->
-        <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Prohlížeč fotek">
-          <button class="lb__close" aria-label="Zavřít (Esc)">✕</button>
-      
-          <figure class="lb__stage">
-            <img class="lb__img" src="" alt="">
-            <figcaption class="lb__caption"></figcaption>
-          </figure>
-      
-          <button class="lb__nav lb__prev" aria-label="Předchozí (←)">‹</button>
-          <button class="lb__nav lb__next" aria-label="Další (→)">›</button>
-          <div class="lb__dots" aria-hidden="true"></div>
-        </div>
-      
-        <!-- tvoje JS (pokud máš) -->
-        <!-- Lightbox JS -->
-        <script src="../../assets/js/gallery.js" defer></script>
+        
       </body>
       </html>
 </body>
