@@ -1,0 +1,53 @@
+# ===== ZÁKLADNÍ NASTAVENÍ =====
+# Povolit přístup k webu a vypnout výpisy adresářů
+Require all granted
+Options -Indexes
+
+# Výchozí soubory
+DirectoryIndex index.html index.php
+
+# Zablokovat přístup k .ht* souborům (včetně tohoto)
+<Files ~ "^\.ht">
+  Require all denied
+</Files>
+
+# Zablokovat technické / citlivé soubory, kdyby se objevily na hostingu
+<FilesMatch "^(\.env|composer\.(json|lock)|package\.json|package-lock\.json|yarn\.lock|gulpfile\.js|Gruntfile\.js|webpack\.config.*|README.*|LICENSE.*|Makefile)$">
+  Require all denied
+</FilesMatch>
+
+# ===== HLAVIČKY PRO BEZPEČNOST =====
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  # Pozn.: X-XSS-Protection je deprecated – vypnuto kvůli moderním prohlížečům
+  Header set X-XSS-Protection "0"
+
+  # Konzervativní CSP – povolí vlastní doménu + data: (např. inline SVG, obrázky)
+  Header set Content-Security-Policy "default-src 'self'; img-src 'self' data: https:; font-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:; script-src 'self' https:; object-src 'none'"
+</IfModule>
+
+# ===== CORS pro fonty (kvůli načítání z cdn/subdomény) =====
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+
+# ===== KOMPRESE (pokud je na hostingu povolená) =====
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# ===== CACHE STATIC. SOUBORŮ =====
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css                 "access plus 30 days"
+  ExpiresByType application/javascript   "access plus 30 days"
+  ExpiresByType image/svg+xml            "access plus 30 days"
+  ExpiresByType image/webp               "access plus 30 days"
+  ExpiresByType image/png                "access plus 30 days"
+  ExpiresByType image/jpeg               "access plus 30 days"
+  ExpiresDefault                         "access plus 1 day"
+</IfModule>
